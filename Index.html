@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Font - Plus Jakarta Sans -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Supabase JS Client -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
     <script>
         tailwind.config = {
@@ -66,10 +64,12 @@
             box-shadow: 0 0 35px rgba(0, 242, 254, 0.28);
         }
 
+        /* Mencegah zoom/fullscreen bawaan browser pada elemen video */
         video::-webkit-media-controls-fullscreen-button {
             display: none !important;
         }
 
+        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -91,6 +91,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 
+                <!-- Logo -->
                 <a href="#" class="flex items-center space-x-3 group">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
                         <i class="fa-solid fa-helicopter text-slate-950 text-xl"></i>
@@ -98,6 +99,7 @@
                     <span class="text-xl sm:text-2xl font-extrabold tracking-wider text-white">CapungTerbang<span class="gradient-text">.id</span></span>
                 </a>
 
+                <!-- Desktop Navigation Menu -->
                 <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
                     <a href="#galeri" class="hover:text-cyan-400 transition-colors">Galeri Karya</a>
                     <a href="#kategori" class="hover:text-cyan-400 transition-colors">Kategori</a>
@@ -106,6 +108,7 @@
                     <a href="#kontak" class="hover:text-cyan-400 transition-colors">Kontak</a>
                 </nav>
 
+                <!-- Action Buttons & Search -->
                 <div class="hidden md:flex items-center space-x-4">
                     <a href="https://www.tiktok.com/@capungterbang.id?_r=1&_t=ZS-9A6ELqp5A8o" target="_blank" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-gray-300 flex items-center justify-center transition-all" title="TikTok CapungTerbang.id">
                         <i class="fa-brands fa-tiktok text-sm"></i>
@@ -124,6 +127,7 @@
                     </a>
                 </div>
 
+                <!-- Mobile Menu Buttons -->
                 <div class="md:hidden flex items-center space-x-2">
                     <a href="https://www.tiktok.com/@capungterbang.id?_r=1&_t=ZS-9A6ELqp5A8o" target="_blank" class="text-gray-300 hover:text-cyan-400 p-2">
                         <i class="fa-brands fa-tiktok text-lg"></i>
@@ -139,6 +143,7 @@
             </div>
         </div>
 
+        <!-- Mobile Menu Dropdown -->
         <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
             <div class="pt-2 pb-1">
                 <input type="text" id="searchInputMobile" onkeyup="filterGalleryMobile()" placeholder="Cari lokasi/kata kunci..." class="w-full bg-slate-800 border border-slate-700 rounded-lg py-2 pl-9 pr-4 text-sm text-gray-200 focus:outline-none focus:border-cyan-500">
@@ -180,6 +185,7 @@
                 </button>
             </div>
 
+            <!-- Stats Bar -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-16 pt-8 border-t border-slate-800/80">
                 <div>
                     <h3 class="text-3xl font-extrabold text-white">4K UHD</h3>
@@ -208,6 +214,7 @@
                 <p class="text-sm text-gray-400 mt-2">Unggah dan jelajahi hasil tangkapan foto & video udara profesional.</p>
             </div>
 
+            <!-- Category Filter Tabs -->
             <div id="kategori" class="flex flex-wrap gap-2 glass-card p-1.5 rounded-xl border border-slate-800">
                 <button onclick="setFilter('all')" class="filter-btn active px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-cyan-500 text-slate-950" data-filter="all">Semua</button>
                 <button onclick="setFilter('video')" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold text-gray-400 hover:text-white transition-all" data-filter="video">Video 4K</button>
@@ -217,8 +224,9 @@
             </div>
         </div>
 
+        <!-- Gallery Grid Dynamic Container -->
         <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Content render via Supabase -->
+            <!-- Dynamic JavaScript content will render here -->
         </div>
     </section>
 
@@ -270,8 +278,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
+                <!-- Creator & Drone Profile Card -->
                 <div class="lg:col-span-5 relative">
                     <div class="relative rounded-3xl overflow-hidden glass-card p-3 border-slate-700/50">
+                        <!-- Gambar Drone DJI Lito X1 -->
                         <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?q=80&w=800&auto=format&fit=crop" alt="DJI Lito X1 Drone - Dwiki Ananda" class="w-full h-96 object-cover rounded-2xl">
                         <div class="absolute bottom-6 left-6 right-6 glass-card p-4 rounded-xl border border-slate-700/80">
                             <div class="flex items-center justify-between">
@@ -287,6 +297,7 @@
                     </div>
                 </div>
 
+                <!-- Creator Info & Drone Specs -->
                 <div class="lg:col-span-7 space-y-6">
                     <div class="inline-block px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-semibold border border-cyan-500/20">
                         Tentang Kreator & Peralatan
@@ -296,6 +307,57 @@
                         Selamat datang di CapungTerbang.id! Dikelola langsung oleh Dwiki Ananda, platform ini didedikasikan untuk menyajikan karya fotografi dan videografi udara terbaik. Menggunakan drone generasi terbaru untuk memastikan setiap sudut visual terabadikan dengan tajam, jernih, dan sinematik.
                     </p>
 
+                    <!-- Drone Kit Specifications -->
+                    <div class="pt-4">
+                        <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-4 text-cyan-400 flex items-center gap-2">
+                            <i class="fa-solid fa-helicopter"></i> Drone Kit Spesifikasi Utama:
+                        </h3>
+                        <div class="glass-card p-6 rounded-2xl border-slate-800">
+                            <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800">
+                                <div>
+                                    <h4 class="text-lg font-bold text-white">DJI Lito X1</h4>
+                                    <p class="text-xs text-cyan-400">Compact Ultra-Lightweight Flagship Drone</p>
+                                </div>
+                                <span class="bg-cyan-500/20 text-cyan-400 text-[11px] px-3 py-1 rounded-full font-semibold border border-cyan-500/30">&lt; 249 Gram</span>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                                <div class="space-y-1">
+                                    <p class="text-gray-400">Sensor Kamera:</p>
+                                    <p class="text-white font-semibold">1/1.3-inch CMOS 48 MP</p>
+                                </div>
+                                <div class="space-y-1">
+                                    <p class="text-gray-400">Perekaman Video:</p>
+                                    <p class="text-white font-semibold">4K/60fps HDR & 4K/100fps Slow-mo</p>
+                                </div>
+                                <div class="space-y-1">
+                                    <p class="text-gray-400">Sistem Transmisi Video:</p>
+                                    <p class="text-white font-semibold">DJI O4 Transmission (Hingga 15 KM)</p>
+                                </div>
+                                <div class="space-y-1">
+                                    <p class="text-gray-400">Sistem Keamanan Flight:</p>
+                                    <p class="text-white font-semibold">Omnidirectional Sensing + LiDAR Sensor</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+                <!-- Creator Info & Drone Specs -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-block px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-semibold border border-cyan-500/20">
+                        Tentang Kreator & Peralatan
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white">Menghadirkan Keindahan Aerial dengan Presisi DJI Lito X1</h2>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Selamat datang di CapungTerbang.id! Dikelola langsung oleh Dwiki Ananda, platform ini didedikasikan untuk menyajikan karya fotografi dan videografi udara terbaik. Menggunakan drone generasi terbaru untuk memastikan setiap sudut visual terabadikan dengan tajam, jernih, dan sinematik.
+                    </p>
+
+                    <!-- Drone Kit Specifications -->
                     <div class="pt-4">
                         <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-4 text-cyan-400 flex items-center gap-2">
                             <i class="fa-solid fa-helicopter"></i> Drone Kit Spesifikasi Utama:
@@ -343,10 +405,12 @@
             </button>
 
             <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
+                <!-- Preview Container -->
                 <div id="modalMediaContainer" class="md:col-span-7 bg-black flex items-center justify-center relative min-h-[250px] md:min-h-[400px]">
                     <span id="modalTypeBadge" class="absolute top-4 left-4 z-10 bg-slate-900/80 border border-slate-700 text-cyan-400 text-xs px-3 py-1 rounded-full font-bold"></span>
                 </div>
 
+                <!-- Detail & Pricing Options -->
                 <div class="md:col-span-5 p-6 flex flex-col justify-between">
                     <div>
                         <span id="modalCategory" class="text-xs text-cyan-400 font-semibold uppercase tracking-wider"></span>
@@ -355,6 +419,7 @@
                             <i class="fa-solid fa-location-dot text-cyan-400"></i> <span></span>
                         </p>
 
+                        <!-- Specifications List -->
                         <div class="mt-6 space-y-2 border-t border-b border-slate-800 py-4 text-xs">
                             <div class="flex justify-between"><span class="text-gray-400">Resolusi:</span><span id="modalRes" class="text-white font-semibold"></span></div>
                             <div class="flex justify-between"><span class="text-gray-400">Drone Kit:</span><span id="modalDrone" class="text-white font-semibold">DJI Lito X1</span></div>
@@ -362,6 +427,7 @@
                             <div class="flex justify-between"><span class="text-gray-400">Cloud Storage:</span><span class="text-cyan-400 font-semibold">Google Drive Link</span></div>
                         </div>
 
+                        <!-- License Selection Option -->
                         <div class="mt-4">
                             <label class="text-xs text-gray-300 font-semibold mb-2 block">Pilih Opsi Lisensi Penggunaan:</label>
                             <select id="licenseSelect" onchange="updateModalPrice()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-cyan-500">
@@ -497,42 +563,117 @@
     </footer>
 
     <script>
-        // ISI DENGAN CREDENTIAL SUPABASE MILIKMU
-        const SUPABASE_URL = 'https://YOUR_PROJECT_ID.supabase.co';
-        const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
-        
-        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
         let items = [];
         let activeFilter = 'all';
         let selectedItem = null;
         const myPhoneNumber = "6289646985614";
 
-        async function fetchGalleryFromSupabase() {
-            try {
-                const { data, error } = await supabaseClient
-                    .from('gallery')
-                    .select('*')
-                    .order('id', { ascending: false });
+        // IndexedDB untuk Penyimpanan Permanen
+        const DB_NAME = 'CapungTerbangDB';
+        const DB_VERSION = 1;
+        const STORE_NAME = 'galleryItems';
+        let db;
 
-                if (error) throw error;
+        function initDB() {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open(DB_NAME, DB_VERSION);
+                request.onupgradeneeded = function(e) {
+                    db = e.target.result;
+                    if (!db.objectStoreNames.contains(STORE_NAME)) {
+                        db.createObjectStore(STORE_NAME, { keyPath: 'id' });
+                    }
+                };
+                request.onsuccess = function(e) {
+                    db = e.target.result;
+                    resolve(db);
+                };
+                request.onerror = function(e) {
+                    reject(e);
+                };
+            });
+        }
 
-                items = data.map(item => ({
-                    id: item.id,
-                    title: item.title,
-                    type: item.type,
-                    category: item.category,
-                    resolution: item.resolution,
-                    location: item.location,
-                    price: parseFloat(item.price),
-                    drone: item.drone || 'DJI Lito X1',
-                    mediaUrl: item.media_url
-                }));
+        async function loadItemsFromDB() {
+            if (!db) await initDB();
+            return new Promise((resolve) => {
+                const tx = db.transaction(STORE_NAME, 'readonly');
+                const store = tx.objectStore(STORE_NAME);
+                const req = store.getAll();
+                req.onsuccess = function() {
+                    items = req.result || [];
+                    items.sort((a, b) => b.id - a.id);
+                    items.forEach(item => {
+                        if (item.fileBlob) {
+                            item.mediaUrl = URL.createObjectURL(item.fileBlob);
+                        }
+                    });
+                    resolve(items);
+                };
+            });
+        }
 
-                renderGallery();
-            } catch (err) {
-                console.error("Gagal mengambil data Supabase:", err);
-            }
+        async function saveItemToDB(item) {
+            if (!db) await initDB();
+            return new Promise((resolve) => {
+                const tx = db.transaction(STORE_NAME, 'readwrite');
+                const store = tx.objectStore(STORE_NAME);
+                const itemToSave = { ...item };
+                delete itemToSave.mediaUrl;
+                store.put(itemToSave);
+                tx.oncomplete = () => resolve();
+            });
+        }
+
+        async function deleteItemFromDB(id) {
+            if (!db) await initDB();
+            return new Promise((resolve) => {
+                const tx = db.transaction(STORE_NAME, 'readwrite');
+                const store = tx.objectStore(STORE_NAME);
+                store.delete(id);
+                tx.oncomplete = () => resolve();
+            });
+        }
+
+        // Watermark Generator Foto
+        function applyWatermarkToImage(file) {
+            return new Promise((resolve) => {
+                const img = new Image();
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    img.onload = function() {
+                        const canvas = document.createElement('canvas');
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+                        const ctx = canvas.getContext('2d');
+
+                        ctx.drawImage(img, 0, 0);
+
+                        const fontSize = Math.max(16, Math.round(canvas.width / 25));
+                        ctx.font = `bold ${fontSize}px "Plus Jakarta Sans", sans-serif`;
+                        const watermarkText = "CapungTerbang.id";
+
+                        const padding = fontSize * 0.8;
+                        const textMetrics = ctx.measureText(watermarkText);
+                        const x = canvas.width - textMetrics.width - padding;
+                        const y = canvas.height - padding;
+
+                        ctx.shadowColor = "rgba(0, 0, 0, 0.85)";
+                        ctx.shadowOffsetX = 3;
+                        ctx.shadowOffsetY = 3;
+                        ctx.shadowBlur = 6;
+
+                        ctx.fillStyle = "#00f2fe";
+                        ctx.fillText(watermarkText, x, y);
+
+                        canvas.toBlob((blob) => {
+                            resolve(blob);
+                        }, file.type || 'image/jpeg', 0.92);
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
         }
 
         function renderGallery() {
@@ -574,6 +715,7 @@
                 
                 let mediaElementHTML = '';
                 if (item.type === 'video') {
+                    // Penambahan controlsList="nofullscreen nodownload" & disablepictureinpicture untuk mematikan fitur perbesar/fullscreen
                     mediaElementHTML = `
                         <video src="${item.mediaUrl}" controls controlsList="nofullscreen nodownload" disablepictureinpicture ondblclick="return false;" class="w-full h-full object-cover bg-black" preload="metadata"></video>
                     `;
@@ -592,7 +734,7 @@
                                     <i class="${item.type === 'video' ? 'fa-solid fa-video' : 'fa-solid fa-camera'} mr-1"></i> ${item.type}
                                 </span>
                             </div>
-                            <button onclick="deleteGalleryItem(${item.id}, '${item.mediaUrl}')" class="absolute top-3 right-3 z-10 bg-red-600/80 hover:bg-red-600 text-white w-7 h-7 rounded-lg flex items-center justify-center transition-all shadow-md" title="Hapus Video/Foto Ini">
+                            <button onclick="deleteGalleryItem(${item.id})" class="absolute top-3 right-3 z-10 bg-red-600/80 hover:bg-red-600 text-white w-7 h-7 rounded-lg flex items-center justify-center transition-all shadow-md" title="Hapus Video/Foto Ini">
                                 <i class="fa-solid fa-trash-can text-xs"></i>
                             </button>
                             <span class="absolute bottom-3 right-3 bg-slate-950/80 backdrop-blur-md text-gray-300 text-[10px] font-medium px-2 py-0.5 rounded pointer-events-none">
@@ -628,31 +770,18 @@
             });
         }
 
-        async function deleteGalleryItem(id, mediaUrl) {
-            const confirmed = confirm("Apakah Anda yakin ingin menghapus karya ini secara permanen dari Supabase?");
+        async function deleteGalleryItem(id) {
+            const confirmed = confirm("Apakah Anda yakin ingin menghapus karya ini secara permanen?");
             if (!confirmed) return;
 
-            try {
-                // Hapus record dari database
-                const { error: dbError } = await supabaseClient
-                    .from('gallery')
-                    .delete()
-                    .eq('id', id);
-
-                if (dbError) throw dbError;
-
-                // Hapus file dari Storage bucket jika ada
-                if (mediaUrl.includes('/storage/v1/object/public/media/')) {
-                    const fileName = mediaUrl.split('/media/')[1];
-                    if (fileName) {
-                        await supabaseClient.storage.from('media').remove([fileName]);
-                    }
+            const targetIndex = items.findIndex(i => i.id === id);
+            if (targetIndex !== -1) {
+                if (items[targetIndex].mediaUrl) {
+                    URL.revokeObjectURL(items[targetIndex].mediaUrl);
                 }
-
-                await fetchGalleryFromSupabase();
-            } catch (err) {
-                console.error("Gagal menghapus:", err);
-                alert("Gagal menghapus data dari server.");
+                items.splice(targetIndex, 1);
+                await deleteItemFromDB(id);
+                renderGallery();
             }
         }
 
@@ -699,6 +828,7 @@
                 const videoElement = document.createElement('video');
                 videoElement.src = selectedItem.mediaUrl;
                 videoElement.controls = true;
+                // Penambahan pembatasan kontrol fullscreen pada modal preview
                 videoElement.setAttribute('controlsList', 'nofullscreen nodownload');
                 videoElement.setAttribute('disablepictureinpicture', 'true');
                 videoElement.ondblclick = () => false;
@@ -762,66 +892,54 @@
             e.preventDefault();
             
             const fileInput = document.getElementById('upFile');
-            const file = fileInput.files[0];
+            const originalFile = fileInput.files[0];
 
-            if (!file) {
+            if (!originalFile) {
                 alert("Silakan pilih dokumen foto atau video terlebih dahulu.");
                 return;
             }
 
             const submitBtn = document.getElementById('submitBtn');
             submitBtn.disabled = true;
-            submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Mengunggah ke Server...`;
+            submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Memproses...`;
 
             try {
-                const isVideo = file.type.startsWith('video/');
+                const isVideo = originalFile.type.startsWith('video/');
                 const mediaType = isVideo ? 'video' : 'foto';
                 const defaultResolution = isVideo ? '4K UHD (60 FPS)' : '48 Megapixel RAW';
 
-                // 1. Upload File Fisik ke Supabase Storage Bucket 'media'
-                const fileExt = file.name.split('.').pop();
-                const fileName = `${Date.now()}_${Math.random().toString(36).substring(2)}.${fileExt}`;
+                let finalFileBlob = originalFile;
+
+                if (!isVideo) {
+                    finalFileBlob = await applyWatermarkToImage(originalFile);
+                }
+
+                const localMediaUrl = URL.createObjectURL(finalFileBlob);
+
+                const newItem = {
+                    id: Date.now(),
+                    title: document.getElementById('upTitle').value,
+                    type: mediaType,
+                    category: document.getElementById('upCategory').value,
+                    resolution: defaultResolution,
+                    location: document.getElementById('upLocation').value,
+                    price: parseInt(document.getElementById('upPrice').value) || 150000,
+                    drone: 'DJI Lito X1',
+                    mediaUrl: localMediaUrl,
+                    fileBlob: finalFileBlob
+                };
+
+                await saveItemToDB(newItem);
                 
-                const { data: storageData, error: storageError } = await supabaseClient
-                    .storage
-                    .from('media')
-                    .upload(fileName, file);
-
-                if (storageError) throw storageError;
-
-                // 2. Dapatkan Link Publik File
-                const { data: publicUrlData } = supabaseClient
-                    .storage
-                    .from('media')
-                    .getPublicUrl(fileName);
-
-                const publicUrl = publicUrlData.publicUrl;
-
-                // 3. Simpan Metadata Karya ke Database Supabase
-                const { error: dbError } = await supabaseClient
-                    .from('gallery')
-                    .insert([
-                        {
-                            title: document.getElementById('upTitle').value,
-                            type: mediaType,
-                            category: document.getElementById('upCategory').value,
-                            resolution: defaultResolution,
-                            location: document.getElementById('upLocation').value,
-                            price: parseInt(document.getElementById('upPrice').value) || 150000,
-                            drone: 'DJI Lito X1',
-                            media_url: publicUrl
-                        }
-                    ]);
-
-                if (dbError) throw dbError;
-
-                await fetchGalleryFromSupabase();
+                items.unshift(newItem);
+                renderGallery();
                 closeUploadModal();
                 document.getElementById('uploadForm').reset();
+                
                 document.getElementById('galeri').scrollIntoView({ behavior: 'smooth' });
             } catch (err) {
                 console.error("Gagal mengunggah berkas:", err);
-                alert("Terjadi kesalahan saat mengunggah berkas ke server Supabase.");
+                alert("Terjadi kesalahan saat memproses berkas.");
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = `<i class="fa-solid fa-file-arrow-up"></i><span>Unggah Berkas</span>`;
@@ -840,8 +958,9 @@
             if (event.target === uploadModal) closeUploadModal();
         }
 
-        window.onload = function() {
-            fetchGalleryFromSupabase();
+        window.onload = async function() {
+            await loadItemsFromDB();
+            renderGallery();
         };
     </script>
 </body>
