@@ -87,6 +87,7 @@
 </head>
 <body class="antialiased min-h-screen flex flex-col justify-between">
 
+    <!-- Header / Navbar -->
     <header class="fixed top-0 left-0 right-0 z-40 glass-nav transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
@@ -103,6 +104,7 @@
                 <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
                     <a href="#galeri" class="hover:text-cyan-400 transition-colors">Galeri Karya</a>
                     <a href="#kategori" class="hover:text-cyan-400 transition-colors">Kategori</a>
+                    <button onclick="openCaraPesanModal()" class="hover:text-cyan-400 transition-colors focus:outline-none">Cara Pesan</button>
                     <a href="#cloud-storage" class="hover:text-cyan-400 transition-colors">Cloud Storage</a>
                     <a href="#tentang" class="hover:text-cyan-400 transition-colors">Kreator & Gear</a>
                     <a href="#kontak" class="hover:text-cyan-400 transition-colors">Kontak</a>
@@ -150,12 +152,14 @@
             </div>
             <a href="#galeri" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-cyan-400 text-base font-medium py-1">Galeri Karya</a>
             <a href="#kategori" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-cyan-400 text-base font-medium py-1">Kategori</a>
+            <button onclick="toggleMobileMenu(); openCaraPesanModal();" class="block w-full text-left text-gray-300 hover:text-cyan-400 text-base font-medium py-1">Cara Pesan</button>
             <a href="#cloud-storage" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-cyan-400 text-base font-medium py-1">Cloud Storage</a>
             <a href="#tentang" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-cyan-400 text-base font-medium py-1">Kreator & Gear</a>
             <a href="#kontak" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-cyan-400 text-base font-medium py-1">Kontak</a>
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden flex items-center min-h-[85vh]">
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=2000&auto=format&fit=crop" alt="Aerial Background" class="w-full h-full object-cover opacity-25 scale-105">
@@ -180,8 +184,8 @@
                 <a href="#galeri" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-base shadow-lg hover:shadow-cyan-500/25 transition-all transform hover:-translate-y-1 text-center">
                     Jelajahi Galeri
                 </a>
-                <button onclick="openUploadModal()" class="w-full sm:w-auto px-8 py-4 rounded-full glass-card hover:bg-slate-800 text-white font-semibold text-base border border-slate-700/80 transition-all text-center flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-cloud-arrow-up text-cyan-400 text-lg"></i> Unggah Karya
+                <button onclick="openCaraPesanModal()" class="w-full sm:w-auto px-8 py-4 rounded-full glass-card hover:bg-slate-800 text-white font-semibold text-base border border-slate-700/80 transition-all text-center flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-circle-info text-cyan-400 text-lg"></i> Cara Pesan
                 </button>
             </div>
 
@@ -207,6 +211,7 @@
         </div>
     </section>
 
+    <!-- Gallery Section -->
     <section id="galeri" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
             <div>
@@ -230,6 +235,7 @@
         </div>
     </section>
 
+    <!-- Cloud Storage Section -->
     <section id="cloud-storage" class="py-16 bg-slate-950/80 border-y border-slate-800/80 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="glass-card rounded-3xl p-8 md:p-12 border border-cyan-500/20 relative">
@@ -274,6 +280,7 @@
         </div>
     </section>
 
+    <!-- Creator & Gear Section -->
     <section id="tentang" class="py-20 bg-slate-950/40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -281,7 +288,6 @@
                 <!-- Creator & Drone Profile Card -->
                 <div class="lg:col-span-5 relative">
                     <div class="relative rounded-3xl overflow-hidden glass-card p-3 border-slate-700/50">
-                        <!-- Gambar Drone DJI Lito X1 -->
                         <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?q=80&w=800&auto=format&fit=crop" alt="DJI Lito X1 Drone - Dwiki Ananda" class="w-full h-96 object-cover rounded-2xl">
                         <div class="absolute bottom-6 left-6 right-6 glass-card p-4 rounded-xl border border-slate-700/80">
                             <div class="flex items-center justify-between">
@@ -347,57 +353,7 @@
         </div>
     </section>
 
-                <!-- Creator Info & Drone Specs -->
-                <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-block px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-semibold border border-cyan-500/20">
-                        Tentang Kreator & Peralatan
-                    </div>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-white">Menghadirkan Keindahan Aerial dengan Presisi DJI Lito X1</h2>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Selamat datang di CapungTerbang.id! Dikelola langsung oleh Dwiki Ananda, platform ini didedikasikan untuk menyajikan karya fotografi dan videografi udara terbaik. Menggunakan drone generasi terbaru untuk memastikan setiap sudut visual terabadikan dengan tajam, jernih, dan sinematik.
-                    </p>
-
-                    <!-- Drone Kit Specifications -->
-                    <div class="pt-4">
-                        <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-4 text-cyan-400 flex items-center gap-2">
-                            <i class="fa-solid fa-helicopter"></i> Drone Kit Spesifikasi Utama:
-                        </h3>
-                        <div class="glass-card p-6 rounded-2xl border-slate-800">
-                            <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800">
-                                <div>
-                                    <h4 class="text-lg font-bold text-white">DJI Lito X1</h4>
-                                    <p class="text-xs text-cyan-400">Compact Ultra-Lightweight Flagship Drone</p>
-                                </div>
-                                <span class="bg-cyan-500/20 text-cyan-400 text-[11px] px-3 py-1 rounded-full font-semibold border border-cyan-500/30">&lt; 249 Gram</span>
-                            </div>
-
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                                <div class="space-y-1">
-                                    <p class="text-gray-400">Sensor Kamera:</p>
-                                    <p class="text-white font-semibold">1/1.3-inch CMOS 48 MP</p>
-                                </div>
-                                <div class="space-y-1">
-                                    <p class="text-gray-400">Perekaman Video:</p>
-                                    <p class="text-white font-semibold">4K/60fps HDR & 4K/100fps Slow-mo</p>
-                                </div>
-                                <div class="space-y-1">
-                                    <p class="text-gray-400">Sistem Transmisi Video:</p>
-                                    <p class="text-white font-semibold">DJI O4 Transmission (Hingga 15 KM)</p>
-                                </div>
-                                <div class="space-y-1">
-                                    <p class="text-gray-400">Sistem Keamanan Flight:</p>
-                                    <p class="text-white font-semibold">Omnidirectional Sensing + LiDAR Sensor</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Detail Preview Modal -->
+    <!-- Modal Detail Preview -->
     <div id="previewModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
         <div class="glass-card bg-slate-900 border border-slate-700/80 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative">
             <button onclick="closePreviewModal()" class="absolute top-4 right-4 z-10 bg-slate-800/80 hover:bg-slate-700 text-gray-300 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
@@ -451,7 +407,71 @@
         </div>
     </div>
 
-    <!-- Local File Upload Modal -->
+    <!-- Modal Cara Pesan -->
+    <div id="caraPesanModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+        <div class="glass-card bg-slate-900 border border-slate-700/80 rounded-3xl max-w-2xl w-full p-6 md:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeCaraPesanModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-lg w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-white">Panduan Cara Pemesanan</h3>
+                    <p class="text-xs text-gray-400">Langkah mudah membeli lisensi foto & video drone 4K</p>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-xs">
+                <!-- Step 1 -->
+                <div class="glass-card p-4 rounded-2xl border-slate-800 flex gap-4 items-start">
+                    <div class="w-8 h-8 rounded-full bg-cyan-500 text-slate-950 font-extrabold flex items-center justify-center shrink-0">1</div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white mb-1">Pilih Karya Visual</h4>
+                        <p class="text-gray-400 leading-relaxed">Cari dan jelajahi karya pada Galeri Aerial. Gunakan pencarian lokasi atau filter kategori untuk memilih foto/video yang sesuai kebutuhan proyek Anda.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="glass-card p-4 rounded-2xl border-slate-800 flex gap-4 items-start">
+                    <div class="w-8 h-8 rounded-full bg-cyan-500 text-slate-950 font-extrabold flex items-center justify-center shrink-0">2</div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white mb-1">Pilih Lisensi Penggunaan</h4>
+                        <p class="text-gray-400 leading-relaxed">Klik tombol <strong>"Detail"</strong> pada karya pilihan Anda. Tentukan jenis lisensi: <strong>Personal</strong> (Media Sosial/Portofolio) atau <strong>Komersial</strong> (Iklan/Perusahaan).</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="glass-card p-4 rounded-2xl border-slate-800 flex gap-4 items-start">
+                    <div class="w-8 h-8 rounded-full bg-cyan-500 text-slate-950 font-extrabold flex items-center justify-center shrink-0">3</div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white mb-1">Konfirmasi & Transaksi via WhatsApp</h4>
+                        <p class="text-gray-400 leading-relaxed">Klik tombol <strong>"Beli via WA"</strong>. Sistem akan menyusun draf pesan pemesanan otomatis ke WhatsApp resmi Dwiki Ananda untuk konfirmasi pembayaran.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="glass-card p-4 rounded-2xl border-slate-800 flex gap-4 items-start">
+                    <div class="w-8 h-8 rounded-full bg-cyan-500 text-slate-950 font-extrabold flex items-center justify-center shrink-0">4</div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white mb-1">Akses Unduhan Cloud Storage</h4>
+                        <p class="text-gray-400 leading-relaxed">Setelah pembayaran terverifikasi, Anda langsung menerima tautan unduhan resmi (Google Drive Dedicated) berkas asli format DNG RAW atau MP4 4K tanpa kompresi.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-800 flex justify-between items-center">
+                <p class="text-[11px] text-gray-400">Butuh bantuan custom project / jasa pilot drone?</p>
+                <a href="https://wa.me/6289646985614" target="_blank" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-4 py-2 rounded-full text-xs transition-all flex items-center gap-1.5">
+                    <i class="fa-brands fa-whatsapp"></i> Chat Admin
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Unggah Berkas -->
     <div id="uploadModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
         <div class="glass-card bg-slate-900 border border-slate-700/80 rounded-3xl max-w-lg w-full p-6 shadow-2xl relative">
             <button onclick="closeUploadModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-lg">
@@ -504,6 +524,7 @@
         </div>
     </div>
 
+    <!-- Footer -->
     <footer id="kontak" class="bg-slate-950 border-t border-slate-800/80 pt-16 pb-12 mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
@@ -524,6 +545,7 @@
                     <ul class="space-y-2 text-xs text-gray-400">
                         <li><a href="#galeri" class="hover:text-cyan-400 transition-colors">Galeri Stok Aerial</a></li>
                         <li><a href="#kategori" class="hover:text-cyan-400 transition-colors">Pilihan Kategori</a></li>
+                        <li><button onclick="openCaraPesanModal()" class="hover:text-cyan-400 transition-colors focus:outline-none">Cara Pesan</button></li>
                         <li><a href="#cloud-storage" class="hover:text-cyan-400 transition-colors">Cloud Storage System</a></li>
                         <li><a href="#tentang" class="hover:text-cyan-400 transition-colors">Kreator & DJI Lito X1</a></li>
                     </ul>
@@ -562,6 +584,7 @@
         </div>
     </footer>
 
+    <!-- Logika JavaScript App -->
     <script>
         let items = [];
         let activeFilter = 'all';
@@ -634,7 +657,7 @@
             });
         }
 
-        // Watermark Generator Foto
+        // Watermark Generator Foto via Canvas
         function applyWatermarkToImage(file) {
             return new Promise((resolve) => {
                 const img = new Image();
@@ -715,7 +738,6 @@
                 
                 let mediaElementHTML = '';
                 if (item.type === 'video') {
-                    // Penambahan controlsList="nofullscreen nodownload" & disablepictureinpicture untuk mematikan fitur perbesar/fullscreen
                     mediaElementHTML = `
                         <video src="${item.mediaUrl}" controls controlsList="nofullscreen nodownload" disablepictureinpicture ondblclick="return false;" class="w-full h-full object-cover bg-black" preload="metadata"></video>
                     `;
@@ -828,7 +850,6 @@
                 const videoElement = document.createElement('video');
                 videoElement.src = selectedItem.mediaUrl;
                 videoElement.controls = true;
-                // Penambahan pembatasan kontrol fullscreen pada modal preview
                 videoElement.setAttribute('controlsList', 'nofullscreen nodownload');
                 videoElement.setAttribute('disablepictureinpicture', 'true');
                 videoElement.ondblclick = () => false;
@@ -878,6 +899,15 @@
                 video.pause();
             }
             document.getElementById('previewModal').classList.add('hidden');
+        }
+
+        // Modal Cara Pesan Functions
+        function openCaraPesanModal() {
+            document.getElementById('caraPesanModal').classList.remove('hidden');
+        }
+
+        function closeCaraPesanModal() {
+            document.getElementById('caraPesanModal').classList.add('hidden');
         }
 
         function openUploadModal() {
@@ -954,8 +984,11 @@
         window.onclick = function(event) {
             const previewModal = document.getElementById('previewModal');
             const uploadModal = document.getElementById('uploadModal');
+            const caraPesanModal = document.getElementById('caraPesanModal');
+            
             if (event.target === previewModal) closePreviewModal();
             if (event.target === uploadModal) closeUploadModal();
+            if (event.target === caraPesanModal) closeCaraPesanModal();
         }
 
         window.onload = async function() {
